@@ -43,9 +43,9 @@
 Ход работы:
 1) Создаю новый проект, по аналогии с предыдущим занятием
 2) Для добавления готового персонажа логинимся на сайте Unity Asset Store
-3) Через поисковую строку находим необходимый Asset, а именно: Dragon for Boss Monster. 
-4) После этого, нам необходимо подключить этот внешний пакет к нашему проекту. (Window--> Package Manager) [Импорт пакетов](https://github.com/umi0193/DA-in-GameDev-lab2/blob/main/%D0%98%D0%BC%D0%BF%D0%BE%D1%80%D1%82%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.jpg)
-5) В открывшемся окне выбираем "My Assets" во вкладке "Package: in projects". После этого туда подгрузятся Ассеты, которые добавлены через личный кабинет Unity Asset Store, а именно - Dragon for Boss Monster. [Добавление Ассета](https://github.com/umi0193/DA-in-GameDev-lab2/blob/main/%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%90%D1%81%D1%81%D0%B5%D1%82%D0%B0.jpg)
+3) Через поисковую строку находим необходимый Asset, а именно: Dragon for Boss Monster. [Добавление Ассета](https://github.com/umi0193/DA-in-GameDev-lab2/blob/main/%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%90%D1%81%D1%81%D0%B5%D1%82%D0%B0.jpg)
+4) После этого, нам необходимо подключить этот внешний пакет к нашему проекту. (Window--> Package Manager) 
+5) В открывшемся окне выбираем "My Assets" во вкладке "Package: in projects". После этого туда подгрузятся Ассеты, которые добавлены через личный кабинет Unity Asset Store, а именно - Dragon for Boss Monster. [Импорт пакетов](https://github.com/umi0193/DA-in-GameDev-lab2/blob/main/%D0%98%D0%BC%D0%BF%D0%BE%D1%80%D1%82%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.jpg)
 6) Нажимаем на этот пакет и скачиваем его, далее импортируем, соглашаясь со всеми предложенными по умолчанию пакетами.
 7) Нахожу и добавляю на свою сцену обьект "Green Monster", который у меня переименовываю в "Enemy", корректируя его расположение.
 8) Для добавления анимации нашему дракону(Enemy), создаем в окне ассетц Animation controller(Create--->Animation controller),переименовываем.
