@@ -59,8 +59,58 @@
 16) Так как Щит нужно оставить, перетаскиваем его туда же, куда и файл Яйца, при этом оставляя на сцене. Таким обраом мы создали основные игровые обьекты, сохраняем проект. 
 17) Далее произведем настройку камеры, так как это также играет важную роль в игре. Для этого выберем в окне иерархии "Main Camera". [Настройка камеры](https://github.com/umi0193/DA-in-GameDev-lab2/blob/main/%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D1%8B.jpg)
 18) Устанавливаем указанные значения Position,Rotation, Scale, а также Projection: Orthographic, size-12, far-50. [Получаем результат](https://github.com/umi0193/DA-in-GameDev-lab2/blob/main/%D0%A0%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8%20%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D1%8B.jpg)
+19) Установим настройки соотношения экрана - выберем 16 к 9 во вкладке Game. [Наблюдаем результат]
+20) Далее создаем скрипт, который будет управлять перемещением персонажа: в папке сцены окна ассетц(Create--->C# Script) [Окно инспектора]()
+21) В скрипте создадим переменные, которые будут отвечать за скорость, уровень случайности, расстояние от краев экрана, после которых движение дракона будет меняться. 
+22) Далее создаем код, который будет хранить и менять позицию дракона в равные промежутки времени. 
+23) Далее, пишем код, который будет позволять менять направление движения дракона при достижении края на противоположное. 
+24) Отдельно прописываем изменение скорости на противоположную при смене позиции.
 
+Итоговый скрипт: 
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+// using Time.deltaTime;
 
+public class EnemyDragon : MonoBehaviour
+{
+    public GameObject dragonEggPrefab;
+    public float speed = 1;
+    public float timeBetweenEggDrops = 1f;
+    public float leftRightDistance = 10f;
+    public float chanceDirection = 0.1f; 
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector3 pos = transform.position;
+        pos.x += speed * Time.deltaTime;
+        transform.position = pos;
+
+        if (pos.x < -leftRightDistance){
+            speed = Mathf.Abs(speed);
+        }
+        else if (pos.x > leftRightDistance){
+            speed = -Mathf.Abs(speed);
+        }
+
+    }
+
+    private void FixedUpdate() {
+        if (Random.value < chanceDirection){
+            speed *= -1;
+        }
+    }
+}
+```
+
+[]()[]()[]()[]()[]()
 ## Задание 2
 ### В проект, выполненный в предыдущем задании, добавить систему проверки того, что SDK подключен (доступен в режиме онлайн и отвечает на запросы);
 
