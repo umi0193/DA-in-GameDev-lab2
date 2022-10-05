@@ -120,7 +120,39 @@ public class EnemyDragon : MonoBehaviour
 32) Устанавливаем настройки взрыва, для этого в окне инспектора для обьекта яйцо меняем значения Particle System, а также настроаиваем Emission и материал при срабатывании OnTrigger в скрипте(столкновении).
 33) Далее создадим еще один скрипт - DragonPicker, который будет управлять общими действиями игры, его подключим к камере Main Camera.
 34) Туда мы определяем настройки размера и накладывания слоев щита, где каждый последующий будет больше предыдущего(всего их 3). 
-35) Выбираем камеру в окне иерархии, и добавляем EnegryShieldPrefab, запускаем сцену и налюдаем [итог] (https://github.com/umi0193/DA-in-GameDev-lab2/blob/main/%D0%A3%D0%B1%D0%B5%D0%B6%D0%B4%D0%B0%D0%B5%D0%BC%D1%81%D1%8F%20%D0%B2%20%D0%BE%D1%82%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BA%20%D0%B8%20%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%B5%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D1%89%D0%B8%D1%82%D0%B0.jpg)
+35) Выбираем камеру в окне иерархии, и добавляем EnegryShieldPrefab, запускаем сцену и налюдаем [итог](https://github.com/umi0193/DA-in-GameDev-lab2/blob/main/%D0%A3%D0%B1%D0%B5%D0%B6%D0%B4%D0%B0%D0%B5%D0%BC%D1%81%D1%8F%20%D0%B2%20%D0%BE%D1%82%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BA%20%D0%B8%20%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%B5%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D1%89%D0%B8%D1%82%D0%B0.jpg)
+
+Окончательный скрипт DragonPicker.cs
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DragonPicker : MonoBehaviour
+{
+
+
+    public GameObject energyShieldPrefab;
+    public int numEnergyShield = 3;
+    public float energyShieldBottomY = -6f;
+    public float energyShieldRadius = 1.5f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        for (int i = 1; i <= numEnergyShield; i++){
+            GameObject tShieldGo = Instantiate<GameObject>(energyShieldPrefab);
+            tShieldGo.transform.position = new Vector3(0, energyShieldBottomY, 0);
+            tShieldGo.transform.localScale = new Vector3(1*i,1*i,1*i);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+```
 ## Задание 2
 ### В проект, выполненный в предыдущем задании, добавить систему проверки того, что SDK подключен (доступен в режиме онлайн и отвечает на запросы);
 
